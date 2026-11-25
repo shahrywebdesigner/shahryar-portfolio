@@ -1,0 +1,480 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Dark Theme: Black + Platinum Silver ── */
+
+:root,
+html[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-base: #090A0C;
+  --color-surface: #181A1F;
+  --color-card: #202228;
+  --color-border: #303238;
+
+  --color-text: #FFFFFF;
+  --color-muted: #A1A1AA;
+  --color-accent: #D1D5DB;
+  --color-accent-secondary: #71717A;
+
+  --color-electric: #D1D5DB;
+  --color-violet: #71717A;
+
+  --color-electric-glow: rgba(209, 213, 219, 0.15);
+  --color-violet-glow: rgba(113, 113, 122, 0.15);
+
+  --color-grid: rgba(209, 213, 219, 0.045);
+  --color-selection: rgba(209, 213, 219, 0.25);
+  --color-focus: rgba(209, 213, 219, 0.6);
+
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Light Theme: Off-white + Charcoal + Silver ── */
+
+html[data-theme='light'] {
+  color-scheme: light;
+
+  --color-base: #F5F5F5;
+  --color-surface: #FFFFFF;
+  --color-card: #FFFFFF;
+  --color-border: #E4E4E7;
+
+  --color-text: #18181B;
+  --color-muted: #52525B;
+  --color-accent: #52525B;
+  --color-accent-secondary: #71717A;
+
+  --color-electric: #52525B;
+  --color-violet: #71717A;
+
+  --color-electric-glow: rgba(82, 82, 91, 0.10);
+  --color-violet-glow: rgba(113, 113, 122, 0.10);
+
+  --color-grid: rgba(82, 82, 91, 0.055);
+  --color-selection: rgba(113, 113, 122, 0.2);
+  --color-focus: rgba(82, 82, 91, 0.5);
+
+  --color-glass: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Global Base ── */
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-base);
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* ── Typography ── */
+
+.font-display {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ── Gradient Text ── */
+
+.gradient-text,
+.gradient-text-electric {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-secondary) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Aurora Hero Background ── */
+
+.aurora-bg {
+  background: linear-gradient(
+    125deg,
+    var(--color-base) 0%,
+    var(--color-surface) 20%,
+    #252830 35%,
+    var(--color-base) 50%,
+    #17191F 65%,
+    #292B32 80%,
+    var(--color-base) 100%
+  );
+  background-size: 400% 400%;
+  animation: aurora 12s ease infinite;
+}
+
+html[data-theme='light'] .aurora-bg {
+  background: linear-gradient(
+    125deg,
+    #F5F5F5 0%,
+    #ECEDEF 20%,
+    #E1E2E5 35%,
+    #F5F5F5 50%,
+    #E9EAEC 65%,
+    #DCDDDF 80%,
+    #F5F5F5 100%
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes aurora {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ── Subtle Grid Overlay ── */
+
+.grid-overlay {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      var(--color-grid) 59px,
+      var(--color-grid) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      var(--color-grid) 59px,
+      var(--color-grid) 60px
+    );
+}
+
+/* ── Glow Utilities ── */
+
+.glow-electric {
+  box-shadow:
+    0 0 20px var(--color-electric-glow),
+    0 0 60px rgba(209, 213, 219, 0.05);
+}
+
+.glow-violet {
+  box-shadow:
+    0 0 20px var(--color-violet-glow),
+    0 0 60px rgba(113, 113, 122, 0.05);
+}
+
+.text-glow {
+  text-shadow: 0 0 30px var(--color-electric-glow);
+}
+
+/* ── Custom Cursor ── */
+
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-electric);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--color-electric);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.cursor-ring.hovering {
+  width: 52px;
+  height: 52px;
+  opacity: 0.3;
+  border-color: var(--color-violet);
+}
+
+/* ── Scroll Progress Bar ── */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  z-index: 9997;
+  background: linear-gradient(
+    90deg,
+    var(--color-electric),
+    var(--color-violet)
+  );
+  transform-origin: left center;
+}
+
+/* ── Experience Timeline ── */
+
+.timeline-line {
+  position: absolute;
+  left: 1.75rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-electric),
+    transparent
+  );
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-base);
+  border-radius: 50%;
+  position: absolute;
+  left: calc(1.75rem - 7px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.timeline-dot-electric {
+  background: var(--color-electric);
+  box-shadow: 0 0 10px var(--color-electric);
+}
+
+.timeline-dot-violet {
+  background: var(--color-violet);
+  box-shadow: 0 0 10px var(--color-violet);
+}
+
+/* ── Glassmorphism ── */
+
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme='light'] .glass-dark {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Light Theme: Existing Tailwind Utility Compatibility ── */
+
+html[data-theme='light'] .bg-base-900 {
+  background-color: #F5F5F5;
+}
+
+html[data-theme='light'] .bg-base-800 {
+  background-color: #FFFFFF;
+}
+
+html[data-theme='light'] .bg-base-700 {
+  background-color: #F0F0F1;
+}
+
+html[data-theme='light'] .bg-base-600 {
+  background-color: #E4E4E7;
+}
+
+html[data-theme='light'] .text-white {
+  color: #18181B;
+}
+
+html[data-theme='light'] .text-gray-100,
+html[data-theme='light'] .text-gray-200,
+html[data-theme='light'] .text-gray-300 {
+  color: #27272A;
+}
+
+html[data-theme='light'] .text-gray-400,
+html[data-theme='light'] .text-gray-500 {
+  color: #71717A;
+}
+
+html[data-theme='light'] .border-white\/5,
+html[data-theme='light'] .border-white\/10,
+html[data-theme='light'] .border-white\/20 {
+  border-color: #E4E4E7;
+}
+
+html[data-theme='light'] .bg-white\/5,
+html[data-theme='light'] .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme='light'] .hover\:bg-white\/5:hover,
+html[data-theme='light'] .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+html[data-theme='light'] .hover\:text-white:hover {
+  color: #18181B;
+}
+
+/* ── Custom Scrollbar ── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-electric),
+    var(--color-violet)
+  );
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+}
+
+/* ── Selection ── */
+
+::selection {
+  background: var(--color-selection);
+  color: var(--color-text);
+}
+
+/* ── Focus Styles ── */
+
+*:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ── Form Input Styling ── */
+
+input,
+textarea,
+select {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 2px var(--color-electric-glow) !important;
+}
+
+/* ── Hover Lift ── */
+
+.hover-lift {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Theme Transition ── */
+
+body,
+nav,
+section,
+article,
+footer,
+header,
+button,
+input,
+textarea,
+select,
+.glass,
+.glass-dark {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ── Performance Hints ── */
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* ── Print Styles ── */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ── Accessibility: Reduced Motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-bg {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
