@@ -335,6 +335,7 @@ function App() {
     },
   ];
 
+  
   const skillCategories = [
     {
       title: 'Frontend Development',
@@ -342,6 +343,7 @@ function App() {
         'HTML5',
         'CSS3',
         'JavaScript ES6+',
+        'TypeScript',
         'React.js',
         'Tailwind CSS',
         'Bootstrap',
@@ -355,31 +357,71 @@ function App() {
         'Express.js',
         'REST APIs',
         'PHP',
-        'JWT Authentication',
         'Mongoose',
       ],
       icon: Zap,
     },
     {
-      title: 'Database',
-      skills: ['MongoDB', 'MySQL'],
+      title: 'Databases',
+      skills: [
+        'MongoDB',
+        'MySQL',
+        'PostgreSQL (Basics)',
+        'SQLite (Basics)',
+      ],
       icon: Database,
     },
     {
-      title: 'Tools & Platforms',
+      title: 'Authentication & Authorization',
+      skills: [
+        'JWT Authentication',
+        'bcryptjs',
+        'HTTP-only Cookies',
+        'RBAC (Role-Based Access Control)',
+      ],
+      icon: Layers,
+    },
+    {
+      title: 'AI Tools',
+      skills: [
+        'ChatGPT',
+        'Claude',
+        'Gemini',
+      ],
+      icon: Zap,
+    },
+    {
+      title: 'DevOps & Developer Tools',
       skills: [
         'Git',
         'GitHub',
         'Postman',
+        'Docker (Basics)',
+      ],
+      icon: Wrench,
+    },
+    {
+      title: 'CMS & Design Tools',
+      skills: [
         'WordPress',
         'Elementor',
         'Figma',
         'Canva',
       ],
-      icon: Wrench,
+      icon: Briefcase,
+    },
+    {
+      title: 'Payment Integration & Billing',
+      skills: [
+        'Stripe (Test Mode)',
+        'Subscription Billing',
+      ],
+      icon: ShoppingBag,
     },
   ];
 
+
+  
   const education = [
     {
       degree: "Bachelor's Degree in Mathematics",
@@ -388,10 +430,11 @@ function App() {
     },
     {
       degree: 'F.Sc Pre-Engineering',
-      university: 'Government Degree College',
+      university: 'GHSS',
       duration: '2018 – 2020',
     },
   ];
+
 
   const experience = [
     {

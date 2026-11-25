@@ -3,7 +3,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 import { Menu, Moon, Sun } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../context/useTheme';
 
 const NAV_ITEMS = [
   'home',

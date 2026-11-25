@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sun, Moon } from 'lucide-react';
 import { fadeInRight, staggerContainer } from '../lib/motionVariants';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../context/useTheme';
 
 const NAV_ITEMS = [
   'home',

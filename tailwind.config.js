@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -9,23 +10,23 @@ export default {
       },
       colors: {
         base: {
-          900: '#080C14',
-          800: '#0D1117',
-          700: '#111827',
-          600: '#1a2235',
+          900: '#080B4A',
+          800: '#10136B',
+          700: '#191D83',
+          600: '#25299B',
         },
         electric: {
-          DEFAULT: '#00D9FF',
-          50: '#e0faff',
-          400: '#38ecff',
-          500: '#00D9FF',
-          600: '#00b8d9',
+          DEFAULT: '#42B8FF',
+          50: '#E5F5FF',
+          400: '#62C5FF',
+          500: '#42B8FF',
+          600: '#218FE8',
         },
         violet: {
-          DEFAULT: '#7C3AED',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7C3AED',
+          DEFAULT: '#3936C9',
+          400: '#625FEA',
+          500: '#4845D8',
+          600: '#302DB5',
         },
       },
       animation: {
@@ -49,8 +50,12 @@ export default {
           '50%': { transform: 'translateY(-8px)' },
         },
         pulseRing: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(0, 217, 255, 0.4)' },
-          '50%': { boxShadow: '0 0 0 12px rgba(0, 217, 255, 0)' },
+          '0%, 100%': {
+            boxShadow: '0 0 0 0 rgba(66, 184, 255, 0.4)',
+          },
+          '50%': {
+            boxShadow: '0 0 0 12px rgba(66, 184, 255, 0)',
+          },
         },
       },
     },
